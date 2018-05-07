@@ -1,0 +1,42 @@
+/* src/styling/navBar.css */
+@import url('https://fonts.googleapis.com/css?family=Contrail+One|Lobster');
+/* font-family: 'Lobster', cursive;
+font-family: 'Contrail One', cursive; */
+
+.navHeader {
+    position: absolute;
+    height: 68px;
+    background-color: #546e7a;
+}
+
+.headerTitle {
+    font-size: 21px;
+    font-family: 'Contrail One', cursive;
+    padding-top: 15px;
+    padding-left: 25px;
+    text-align: left;
+    color: white;
+}
+
+.headerNav {
+    text-align: right;
+}
+
+.navButton {
+    font-family: 'Contrail One', cursive;
+    font-size: 16px;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    /* color: rgb(172, 184, 189); */
+
+}
+
+.selected {
+    background-color: white;
+    padding: 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #8bc34a;
+}
