@@ -1,7 +1,7 @@
-//client/src/store.js
+//client/src/collect/store.js
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import ReduxThunk from 'redux-thunk'
-import reducers from './reducers'
+import reducers from '../reducers'
 
 const reducer = combineReducers(reducers)
 

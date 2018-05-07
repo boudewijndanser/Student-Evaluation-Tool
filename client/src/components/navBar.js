@@ -1,8 +1,8 @@
 import React from 'react'
-import AppBar from 'material-ui/AppBar'
+import AppBar from 'material-ui-next/AppBar'
 
 import {BrowserRouter as Router, Route, Redirect, withRouter, NavLink } from 'react-router-dom'
-//import {userId} from '../../jwt'
+import {userId} from '../collect/jwt'
 import {connect} from 'react-redux'
 import AccountIcon from 'material-ui-icons/AccountBox'
 
@@ -27,10 +27,10 @@ const NavBar = (props) => {
   )
 }
 
-// const mapStateToProps = state => ({
-//   user: state.currentUser && state.users &&
-//     state.users[userId(state.currentUser.jwt)]
-// })
+const mapStateToProps = state => ({
+  user: state.currentUser && state.users &&
+    state.users[userId(state.currentUser.jwt)]
+})
 
 export default withRouter((NavBar)
 )

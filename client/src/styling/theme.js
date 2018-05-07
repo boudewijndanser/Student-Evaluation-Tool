@@ -1,4 +1,4 @@
-import { createMuiTheme } from 'material-ui-next/styles';
+import { MuiThemeProvider as NewMuiThemeProvider, createMuiTheme } from 'material-ui-next/styles'
 
 export const theme = createMuiTheme(
   {

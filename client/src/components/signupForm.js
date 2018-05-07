@@ -1,11 +1,11 @@
+//src/containers/signup.js
 import React, { PureComponent } from 'react'
 
 //Styling
 import '../styling/pages.css'
 import Button from 'material-ui-next/Button'
 
-
-export default class LoginForm extends PureComponent {
+export default class SignupForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
@@ -23,7 +23,7 @@ export default class LoginForm extends PureComponent {
 
 	render() {
 		return (
-			<form className="formClass"onSubmit={this.handleSubmit}>
+			<form className="formClass" onSubmit={this.handleSubmit}>
 				<div className="fieldSpacer">
 					<label htmlFor="email">Email </label>
 					<input type="email" name="email" id="email" value={
@@ -38,7 +38,21 @@ export default class LoginForm extends PureComponent {
 					} onChange={ this.handleChange } />
 				</div>
 
-				<Button type="submit" size="medium" color="secondary" variant="raised" >Let's go!</Button>
+				<div className="fieldSpacer">
+					<label htmlFor="confirmPassword">Confirm password </label>
+					<input type="password" name="confirmPassword" id="confirmPassword" value={
+						this.state.confirmPassword || ''
+					} onChange={ this.handleChange } />
+				</div>
+
+				{
+					this.state.password &&
+					this.state.confirmPassword &&
+					this.state.password !== this.state.confirmPassword &&
+					<p style={{color:'red'}}>The passwords do not match!</p>
+				}
+
+				<Button type="submit" size="medium" color="secondary" variant="raised" >Sign me up!</Button>
 			</form>
 		)
 	}
