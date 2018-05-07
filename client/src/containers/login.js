@@ -1,9 +1,10 @@
 //src/containers/login.js
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
-import {login} from '../actions/users'
+//Components & actions
+import { login } from '../actions/users'
 import LoginForm from '../components/loginForm'
 
 //Styling
@@ -22,10 +23,9 @@ class Login extends PureComponent {
 		return (
 			<div>
 				<h1>Login</h1>
-
 				<LoginForm onSubmit={this.handleSubmit} />
 
-        { this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+        		{ this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
 			</div>
 		)
 	}
@@ -34,7 +34,7 @@ class Login extends PureComponent {
 const mapStateToProps = function (state) {
 	return {
 		currentUser: state.currentUser,
-    error: state.login.error
+        error: state.login.error
 	}
 }
 

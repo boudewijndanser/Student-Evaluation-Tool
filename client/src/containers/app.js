@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-//Nav and pages
+//Nav & pages
 import NavBar from '../components/navBar'
 import Signup from './signup'
 import Login from './login'
@@ -11,7 +11,6 @@ import Batch from './batch'
 
 //Styling
 import '../styling/app.css';
-//import Button from 'material-ui/Button'
 
 class App extends Component {
   render() {
