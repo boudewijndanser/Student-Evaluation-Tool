@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import NavBar from '../components/navBar'
 import Signup from './signup'
 import Login from './login'
+import Logout from './logout'
 import Batches from './batches'
 import Batch from './batch'
 
@@ -23,6 +24,7 @@ class App extends Component {
           <main style={{marginTop:75}}>
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route exact path="/batches" component={Batches} />
             <Route exact path="/batch" component={Batch} />
             <Route exact path="/" render={ () => <Redirect to="/batches" /> } />

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './containers/app'
 
+//Setting up the store
 import { Provider } from 'react-redux'
 import store from './collect/store'
 import registerServiceWorker from './collect/registerServiceWorker'
