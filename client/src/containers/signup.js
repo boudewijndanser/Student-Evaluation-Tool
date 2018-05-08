@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 //Components & actions
-import {signup} from '../actions/users'
+import { signup } from '../actions/users'
 import SignupForm from '../components/signupForm'
 
 //Styling

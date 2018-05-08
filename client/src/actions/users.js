@@ -11,6 +11,11 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 
+//These 3 below will probably be removed.
+export const ADD_USER = 'ADD_USER'
+export const UPDATE_USER = 'UPDATE_USER'
+export const UPDATE_USERS = 'UPDATE_USERS'
+
 //Functions
 export const login = (email, password) => (dispatch) =>
 	request
@@ -35,23 +40,47 @@ export const login = (email, password) => (dispatch) =>
     })
 
 
-		export const signup = (email, password) => (dispatch) =>
-		request
-			.post(`${baseUrl}/users`)
-			.send({ firstName: email, lastName: email, email, password })
-			.then(result => {
-				dispatch({
-					type: USER_SIGNUP_SUCCESS
-				})
+export const signup = (email, password) => (dispatch) =>
+request
+	.post(`${baseUrl}/users`)
+	.send({ firstName: email, lastName: email, email, password })
+	.then(result => {
+		dispatch({
+			type: USER_SIGNUP_SUCCESS
+		})
+	})
+	.catch(err => {
+		if (err.status === 400) {
+			dispatch({
+				type: USER_SIGNUP_FAILED,
+				payload: err.response.body.message || 'Unknown error'
 			})
-			.catch(err => {
-				if (err.status === 400) {
-					dispatch({
-						type: USER_SIGNUP_FAILED,
-						payload: err.response.body.message || 'Unknown error'
-					})
-				}
-				else {
-					console.error(err)
-				}
-			})
+		}
+		else {
+			console.error(err)
+		}
+	})
+
+
+export const logout = () => ({
+	type: USER_LOGOUT
+	})
+
+export const getUsers = () => (dispatch, getState) => {
+	const state = getState()
+	if (!state.currentUser) return null
+	const jwt = state.currentUser.jwt
+	
+	if (isExpired(jwt)) return dispatch(logout())
+	
+	request
+		.get(`${baseUrl}/users`)
+		.set('Authorization', `Bearer ${jwt}`)
+		.then(result => {
+		dispatch({
+			type: UPDATE_USERS,
+			payload: result.body
+		})
+		})
+		.catch(err => console.error(err))
+	}
