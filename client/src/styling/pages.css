@@ -36,3 +36,14 @@ p {
 .formClass {
    padding: 10px; 
 }
+
+.batchesDiv {
+    display: -webkit-inline-box;
+    
+}
+.batchCard {
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}

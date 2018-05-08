@@ -1,8 +1,7 @@
 import React from 'react'
 import AppBar from 'material-ui-next/AppBar'
 
-import {BrowserRouter as Router, Route, Redirect, withRouter, NavLink } from 'react-router-dom'
-import {userId} from '../collect/jwt'
+import {withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 
 
@@ -12,7 +11,7 @@ import Button from 'material-ui-next/Button'
 
 
 const NavBar = (props) => {
-  const { location, history, user } = props
+  const { location, history } = props
   return (
     <AppBar className="navHeader" color="primary">
         <div className="headerTitle">Student Evaluation Tool</div>
@@ -30,5 +29,6 @@ const mapStateToProps = state => ({
   user: state.currentUser
 })  
 
-export default withRouter((NavBar)
+export default withRouter(
+  connect(mapStateToProps)(NavBar)
 )
