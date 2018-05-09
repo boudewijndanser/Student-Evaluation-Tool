@@ -34,7 +34,7 @@ class Batches extends Component {
             </CardActions>
         </Card>)
     }
-
+    
     handleSubmit = (data) => {
         this.props.addBatch(data.batchNumber, data.startDate, data.endDate)
         

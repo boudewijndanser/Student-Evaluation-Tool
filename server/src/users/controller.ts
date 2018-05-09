@@ -1,7 +1,6 @@
 //src/users/controller.ts
 import { JsonController, Post, Param, Get, Body, Authorized } from 'routing-controllers'
 import User from './entity';
-import { io } from '../index'
 
 @JsonController()
 export default class UserController {
@@ -14,15 +13,10 @@ export default class UserController {
     const entity = User.create(rest)
     await entity.setPassword(password)
 
-    const user = await entity.save()
+    return entity.save()
 
-    io.emit('action', {
-      type: 'ADD_USER',
-      payload: entity
-    })
-
-    return user
-  }
+    }
+  
 
   @Authorized()
   @Get('/users/:id([0-9]+)')

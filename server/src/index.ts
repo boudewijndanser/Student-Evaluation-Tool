@@ -8,6 +8,8 @@ import * as socketIoJwtAuth from 'socketio-jwt-auth'
 
 import UserController from './users/controller'
 import LoginController from './logins/controller'
+import BatchController from './batches/controller'
+
 import User from './users/entity'
 import setupDb from './collect/db'
 import { secret, verify } from './collect/jwt'
@@ -22,7 +24,8 @@ useKoaServer(app, {
   cors: true,
   controllers: [
     UserController,
-    LoginController
+    LoginController,
+    BatchController
   ],
   authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization
