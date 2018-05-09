@@ -25,12 +25,12 @@ class Batches extends Component {
         return (
         <Card key={batch.id} className="batchCard">
             <CardContent>
-                <CardHeader title={`Batch # ${batch.id}`}/>
+                <CardHeader title={`Batch # ${batch.batchNumber}`}/>
                 <Typography>Start date: {batch.startDate}</Typography>
                 <Typography>End date: {batch.endDate}</Typography>
             </CardContent>
                 <CardActions>
-                <Button size="small" color="primary"variant="raised" onClick={() => this.props.history.push(`/batches/${batch.id}`)} > View batch! </Button> 
+                <Button size="small" color="primary"variant="raised" onClick={() => history.push(`/batch/${batch.id}`)} > View batch! </Button> 
             </CardActions>
         </Card>)
     }
@@ -52,7 +52,8 @@ class Batches extends Component {
                  <div><AddClassDialog onSubmit={this.handleSubmit} /></div>
                  <div className="batchesDiv">
                  { batches && batches.map(batch => this.renderBatch(batch))}
-                   </div>               
+                   </div> 
+                                 
               </div>
              </Router>
           )

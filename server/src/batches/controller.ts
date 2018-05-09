@@ -6,7 +6,7 @@ import Batch from './entity'
   export default class BatchController {
   
     //@Authorized()
-    @Get('/batches/:id([0-9]+)')
+    @Get('/batch/:id([0-9]+)')
     async getBatchById(
       @Param('id') id: number ) {
       const batchFromDb = await Batch.findOneById(id)

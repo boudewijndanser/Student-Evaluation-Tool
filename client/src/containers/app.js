@@ -9,6 +9,7 @@ import Login from './login'
 import Logout from './logout'
 import Batches from './batches'
 import Batch from './batch'
+import Student from './student'
 
 //Styling
 import '../styling/app.css';
@@ -26,7 +27,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/batches" component={Batches} />
-            <Route exact path="/batches/:id" component={Batch} />
+            <Route exact path="/batch/:id" component={Batch} />
+            <Route exact path="/student/:id" component={Student} />
             <Route exact path="/" render={ () => <Redirect to="/batches" /> } />
           </main>
           <footer>
