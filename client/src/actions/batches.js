@@ -57,7 +57,7 @@ export const getBatch = (id) => (dispatch, getState) => {
     if (isExpired(jwt)) return dispatch(logout())
     
     request
-      .get(`${baseUrl}/batches/${id}`)
+      .get(`${baseUrl}/batch/${id}`)
       .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch(updateBatch(result.body)))
       .catch(err => console.error(err))

@@ -38,12 +38,21 @@ p {
 }
 
 .batchesDiv {
-    display: -webkit-inline-box;
+    display: grid;
+    grid-template-columns: 245px 245px 245px 245px ;
+
     
 }
 .batchCard {
-    width: 200px;
+    width: 220px;
     text-align: center;
     padding: 10px;
+    margin: 10px;
+}
+
+.studentCard {
+    width: 220px;
+    text-align: left;
+    /* padding: 10px; */
     margin: 10px;
 }
