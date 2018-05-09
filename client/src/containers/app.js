@@ -26,7 +26,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/batches" component={Batches} />
-            <Route exact path="/batch" component={Batch} />
+            <Route exact path="/batches/:id" component={Batch} />
             <Route exact path="/" render={ () => <Redirect to="/batches" /> } />
           </main>
           <footer>

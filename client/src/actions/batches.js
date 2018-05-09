@@ -6,6 +6,7 @@ import { isExpired } from '../collect/jwt'
 
 export const GET_BATCHES = 'GET_BATCHES'
 export const ADD_BATCH = 'ADD_BATCH'
+export const GET_BATCH = 'GET_BATCH'
 
 const updateBatches = batches => ({
     type: GET_BATCHES,
@@ -14,6 +15,11 @@ const updateBatches = batches => ({
 
 const createBatch = batch => ({
     type: ADD_BATCH,
+    payload: batch
+  })
+
+  const updateBatch = batch => ({
+    type: GET_BATCH,
     payload: batch
   })
 
@@ -41,5 +47,18 @@ export const addBatch = () => (dispatch, getState) => {
       .post(`${baseUrl}/batches`)
       .set('Authorization', `Bearer ${jwt}`)
       .then(result => dispatch(createBatch(result.body)))
+      .catch(err => console.error(err))
+}
+
+export const getBatch = (id) => (dispatch, getState) => {
+    const state = getState()
+    const jwt = state.currentUser.jwt
+
+    if (isExpired(jwt)) return dispatch(logout())
+    
+    request
+      .get(`${baseUrl}/batches/${id}`)
+      .set('Authorization', `Bearer ${jwt}`)
+      .then(result => dispatch(updateBatch(result.body)))
       .catch(err => console.error(err))
 }

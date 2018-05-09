@@ -5,7 +5,7 @@ import Batch from './entity'
   @JsonController()
   export default class BatchController {
   
-    @Authorized()
+    //@Authorized()
     @Get('/batches/:id([0-9]+)')
     async getBatchById(
       @Param('id') id: number ) {
@@ -25,9 +25,10 @@ import Batch from './entity'
     @Authorized()
     @Post('/batches')
     @HttpCode(200)
-    createBatch(
+    async createBatch(
     @Body() batch: Batch) {
-        return batch.save()
+      const entity = await batch.save()  
+      return entity
     }
 
   }
