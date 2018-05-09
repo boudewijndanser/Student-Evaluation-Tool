@@ -30,7 +30,7 @@ class Batches extends Component {
                 <Typography>End date: {batch.endDate}</Typography>
             </CardContent>
                 <CardActions>
-                <Button size="small" color="primary"variant="raised" onClick={() => history.push(`/batches/${batch.id}`)} > View batch! </Button> 
+                <Button size="small" color="primary"variant="raised" onClick={() => this.props.history.push(`/batches/${batch.id}`)} > View batch! </Button> 
             </CardActions>
         </Card>)
     }

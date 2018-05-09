@@ -1,3 +1,4 @@
+//src/evaluations/entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
 import { IsString } from 'class-validator'
@@ -19,11 +20,11 @@ export default class Evaluation extends BaseEntity {
   color: string
 
   @CreateDateColumn()
-  evaluationDate: Date
+  evalDate: Date
 
   @ManyToOne(_ => Student, student => student.evaluations, {eager: true})
   student: Student
 
   @ManyToOne(_ => User, user => user.evaluations, {eager: true})
   user: User
-}
+}   
