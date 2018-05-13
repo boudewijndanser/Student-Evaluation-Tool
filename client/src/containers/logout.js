@@ -17,7 +17,6 @@ class Logout extends PureComponent {
 		if (!this.props.currentUser) return (
 			<Redirect to="/" />
 		)
-
 		return (
 			<div>
 				<h1>Thank you! Bye bye...</h1>

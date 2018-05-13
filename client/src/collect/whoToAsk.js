@@ -13,7 +13,7 @@ const yellowStudents = ["yellowStudent1","yellowStudent2","yellowStudent3","yell
 
 //Setup random function
 
-semiRandomColor = () => {
+export const semiRandomColor = () => {
     //Random between 1 and 100
     const randomColor = Math.floor(Math.random() * 100)
     let chosenColor
@@ -21,14 +21,15 @@ semiRandomColor = () => {
     if (randomColor > 53 && randomColor <= 81) chosenColor = "yellow"
     if (randomColor > 81) chosenColor = "green"
 
-    console.log('randomColor: ', randomColor)
-    console.log('chosenColor: ', chosenColor)
-
-    // Pass it on to separate function
+     // Pass it on to separate function
     semiRandomStudent(chosenColor)
+
+    if (chosenColor = "red" || "green" || "yellow") return true
+    
+    
 }
 
-semiRandomStudent = (color) => {
+export const semiRandomStudent = (color) => {
   let luckyStudent
   // Pick random student from 'color' array based on color recieved from semiRandomColor
   if(color === "red" ) luckyStudent = redStudents[Math.floor(Math.random() * redStudents.length)]
@@ -36,7 +37,7 @@ semiRandomStudent = (color) => {
   if(color === "green" ) luckyStudent = greenStudents[Math.floor(Math.random() * greenStudents.length)]
 
   console.log('And the winner is: ',luckyStudent)
-
+  
 }
 
 //Call the function!

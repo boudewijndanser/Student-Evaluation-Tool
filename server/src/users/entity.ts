@@ -1,7 +1,7 @@
 //src/users/entity.ts
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
-import { Exclude } from 'class-transformer';
-import { MinLength, IsString, IsEmail } from 'class-validator';
+import { Exclude } from 'class-transformer'
+import { MinLength, IsString, IsEmail } from 'class-validator'
 import * as bcrypt from 'bcrypt'
 import Evaluation from '../evaluations/entity'
 

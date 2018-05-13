@@ -1,14 +1,21 @@
-//src/components/addClassDialog.js
+//src/components/addBatchDialog.js
 
 import React from 'react'
 import Button from 'material-ui-next/Button'
 import TextField from 'material-ui-next/TextField'
 import Dialog, { DialogActions, DialogContent, DialogContentText, DialogTitle } from 'material-ui-next/Dialog'
 
-export default class FormDialog extends React.Component {
-  state = {
-    open: false,
-  }
+export default class AddBatchDialog extends React.Component {
+  constructor() {
+		super()
+		this.state = {
+			batchNumber: '',
+      startDate: '',
+      endDate: '',
+      open: false
+		}
+		
+	}
 
   handleClickOpen = () => {
     this.setState({ open: true })
@@ -32,12 +39,14 @@ export default class FormDialog extends React.Component {
   }
 
   render() {
+    const { batchNumber, startDate, endDate } = this.state
+    const isEnabled = batchNumber.length > 0 && startDate.length > 0 && endDate.length > 0
+
     return (
       <div>
-        <div>{this.state.batchNumber}</div>
-            <div>{this.state.startDate}</div>
-            <div>{this.state.endDate}</div>
         <Button variant="raised" color="secondary" onClick={this.handleClickOpen} >Add batch</Button>
+        <br />
+        <br />
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -46,7 +55,6 @@ export default class FormDialog extends React.Component {
           <DialogContent>
             <DialogContentText>
             Please enter the following information:
-            
             </DialogContentText>
             <form onSubmit={this.handleSubmit}>
             <TextField autoFocus margin="normal" id="batchNumber" name="batchNumber" 
@@ -57,14 +65,15 @@ export default class FormDialog extends React.Component {
             <br />
             <br />
             <br />
-            <Button type="submit" variant="raised" color="secondary">add</Button>
+            <Button type="submit" disabled={!isEnabled} onClick={this.handleClose} variant="raised" color="secondary">add</Button>
+            <Button  onClick={this.handleClose} color="primary">Cancel</Button>
             </form>  
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">Cancel</Button>
+            
           </DialogActions>
         </Dialog>
       </div>
-    );
+    )
   }
 }

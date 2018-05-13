@@ -4,9 +4,15 @@ import React, { PureComponent } from 'react'
 import '../styling/pages.css'
 import Button from 'material-ui-next/Button'
 
-
 export default class LoginForm extends PureComponent {
-	state = {}
+	constructor() {
+		super()
+		this.state = {
+			email: '',
+			password: ''
+		}
+		
+	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -21,8 +27,13 @@ export default class LoginForm extends PureComponent {
     })
   }
 
+  	
 	render() {
+		const { email, password } = this.state
+		const isEnabled = email.length > 0 && password.length > 0
+
 		return (
+			
 			<form className="formClass"onSubmit={this.handleSubmit}>
 				<div className="fieldSpacer">
 					<label htmlFor="email">Email </label>
@@ -37,8 +48,9 @@ export default class LoginForm extends PureComponent {
 						this.state.password || ''
 					} onChange={ this.handleChange } />
 				</div>
+				
 
-				<Button type="submit" size="medium" color="secondary" variant="raised" >Let's go!</Button>
+				<Button disabled={!isEnabled} type="submit" size="medium" color="secondary" variant="raised" >Let's go!</Button>
 			</form>
 		)
 	}
