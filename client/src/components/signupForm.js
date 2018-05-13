@@ -6,7 +6,15 @@ import '../styling/pages.css'
 import Button from 'material-ui-next/Button'
 
 export default class SignupForm extends PureComponent {
-	state = {}
+	constructor() {
+		super()
+		this.state = {
+			email: '',
+            password: '',
+            confirmPassword: ''
+		}
+		
+	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
@@ -22,6 +30,10 @@ export default class SignupForm extends PureComponent {
   }
 
 	render() {
+
+		const { email, password, confirmPassword } = this.state
+		const isEnabled = email.length > 0 && password.length > 0 && confirmPassword.length > 0
+		
 		return (
 			<form className="formClass" onSubmit={this.handleSubmit}>
 				<div className="fieldSpacer">
@@ -52,7 +64,7 @@ export default class SignupForm extends PureComponent {
 					<p style={{color:'red'}}>The passwords do not match!</p>
 				}
 
-				<Button type="submit" size="medium" color="secondary" variant="raised" >Sign me up!</Button>
+				<Button disabled={!isEnabled} type="submit" size="medium" color="secondary" variant="raised" >Sign me up!</Button>
 			</form>
 		)
 	}

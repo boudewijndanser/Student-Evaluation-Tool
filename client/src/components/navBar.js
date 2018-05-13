@@ -4,11 +4,9 @@ import AppBar from 'material-ui-next/AppBar'
 import {withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 
-
 //Styling
 import '../styling/navBar.css'
 import Button from 'material-ui-next/Button'
-
 
 const NavBar = (props) => {
   const { location, history } = props
@@ -16,10 +14,10 @@ const NavBar = (props) => {
     <AppBar className="navHeader" color="primary">
         <div className="headerTitle">Student Evaluation Tool</div>
         <div className="headerNav">
-        { location.pathname.indexOf('signup') > 0 && <Button color="secondary" onClick={() => history.push('/login')}>Login</Button> }
-        { location.pathname.indexOf('login') > 0 && <Button color="secondary" onClick={() => history.push('/signup')}>Signup</Button> }
-        { location.pathname.indexOf('batches/') > 0 && <Button color="secondary" onClick={() => history.push('/batches')}>Batches</Button> }
-        { /batches$/.test(location.pathname) && <Button color="secondary" onClick={() => history.push('/logout')}>Logout</Button> }
+        { location.pathname.indexOf('signup') > 0 && <Button variant="raised" size="small" color="secondary" onClick={() => history.push('/login')}>Login</Button> }
+        { location.pathname.indexOf('login') > 0 && <Button variant="raised" size="small" color="secondary" onClick={() => history.push('/signup')}>Signup</Button> }
+        { location.pathname.indexOf('batches') < 0 && location.pathname.indexOf('login') < 0 && <Button variant="raised" size="small" color="secondary" onClick={() => history.push('/batches')}>Back to all batches</Button> }
+        { /batches$/.test(location.pathname) && <Button variant="raised" size="small" color="secondary" onClick={() => history.push('/logout')}>Logout</Button> }
         </div>
     </AppBar>
   )
@@ -30,5 +28,4 @@ const mapStateToProps = state => ({
 })  
 
 export default withRouter(
-  connect(mapStateToProps)(NavBar)
-)
+  connect(mapStateToProps)(NavBar))

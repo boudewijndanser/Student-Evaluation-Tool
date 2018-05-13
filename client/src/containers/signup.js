@@ -23,9 +23,7 @@ class Signup extends PureComponent {
 		return (
 			<div>
 				<h1>Sign up</h1>
-
 				<SignupForm onSubmit={this.handleSubmit} />
-
 				<p style={{color:'red'}}>{ this.props.signup.error }</p>
 			</div>
 		)

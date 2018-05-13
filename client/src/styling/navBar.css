@@ -10,7 +10,7 @@ font-family: 'Contrail One', cursive; */
 }
 
 .headerTitle {
-    font-size: 22px;
+    font-size: 28px;
     font-family: 'Contrail One', cursive;
     padding-top: 14px;
     padding-left: 25px;
@@ -20,7 +20,8 @@ font-family: 'Contrail One', cursive; */
 
 .headerNav {
     text-align: right;
-    padding-bottom: 0px;
+    padding-right: 15px;
+
 }
 
 .navButton {

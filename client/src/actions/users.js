@@ -1,3 +1,4 @@
+//src/actions/users.js
 import * as request from 'superagent'
 import { baseUrl } from '../collect/constants'
 import { isExpired } from '../collect/jwt'
@@ -38,7 +39,6 @@ export const login = (email, password) => (dispatch) =>
     		console.error(err)
     	}
     })
-
 
 export const signup = (email, password) => (dispatch) =>
 request

@@ -12,7 +12,7 @@ export default class Evaluation extends BaseEntity {
   id?: number
 
   @IsString()
-  @Column('text')
+  @Column('text', { nullable: true })
   remark: string
 
   @IsString()
@@ -22,7 +22,7 @@ export default class Evaluation extends BaseEntity {
   @CreateDateColumn()
   evalDate: Date
 
-  @ManyToOne(_ => Student, student => student.evaluations, {eager: true})
+  @ManyToOne(_ => Student, student => student.evaluations)
   student: Student
 
   @ManyToOne(_ => User, user => user.evaluations, {eager: true})

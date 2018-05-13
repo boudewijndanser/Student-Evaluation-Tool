@@ -46,7 +46,7 @@ p {
 .batchCard {
     width: 220px;
     text-align: center;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 10px;
 }
 
@@ -55,4 +55,78 @@ p {
     text-align: left;
     /* padding: 10px; */
     margin: 10px;
+    /* height: 280px; */
+    padding-bottom: 10px;
+}
+
+.createCard {
+    width: 220px;
+    height: 290px;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #8bc34a !important;
+}
+
+.formFields {
+    background-color: #8bc34a;
+}
+
+.buttonSpacer {
+    align-content: flex-end;
+}
+
+.status {
+    /* font-family: 'Contrail One', cursive; */
+    font-size: 12px;
+    color: #8bc34a;
+}
+
+.status2 {
+    /* font-family: 'Contrail One', cursive; */
+    font-size: 14px;
+    color: #4A636F;
+}
+
+.batchDates {
+    color: #bad0da;
+}
+
+.studentTitle {
+    font-family: 'Contrail One', cursive;
+    font-size: 21px;
+    color: #4A636F;
+}
+
+.dotGreen {
+    height: 25px;
+    width: 25px;
+    background-color: #8bc34a;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dotRed {
+    height: 25px;
+    width: 25px;
+    background-color: #d93700;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dotYellow {
+    height: 25px;
+    width: 25px;
+    background-color: #ffd900;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dotGrey {
+    height: 25px;
+    width: 25px;
+    background-color: #bad0da;
+    border-radius: 50%;
+    display: inline-block;
 }

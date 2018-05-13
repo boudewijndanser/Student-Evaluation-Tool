@@ -17,5 +17,5 @@ export default {
   batches,
   batch,
   students,
-  student
+  student,
 }
