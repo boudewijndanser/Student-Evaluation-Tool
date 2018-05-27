@@ -16,7 +16,7 @@ I used OneToMany and ManyToOne relations for the TypeOrm database which then giv
 
 * Add and remove classes
 * Add and remove students
-* View students score colors and comments
+* View student score colors and comments
 
 
 
