@@ -7,7 +7,7 @@
 # Student Evaluation Tool
 > Final personal assignment made for Codaisseur
 
-The goal of this to make a tool which could be used to manage classes and students and evaluate them.
+The goal of this was to make a tool which could be used to manage classes and students and evaluate them.
 We were also asked to make an algorithm that would fetch a student to ask a question to, students with the lowest scores would get questions more often.
 
 I used OneToMany and ManyToOne relations for the TypeOrm database which then gives you the benefit of getting linked data with a single @Get. Setting it up was quite a challenge though!
